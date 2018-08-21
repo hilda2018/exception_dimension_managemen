@@ -1,0 +1,174 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "globals": {
+        "FormData": true,
+        "__DEV__": true,
+        "__TEST__": true,
+        "fetch": true,
+        "jest": true,
+        "expect": true,
+        "describe": true,
+        "afterEach": true,
+        "it": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended"
+    ],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "experimentalObjectRestSpread": true,
+            "jsx": true
+        },
+        "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "prefer-const": [
+            "error",
+            {
+                "destructuring": "any",
+                "ignoreReadBeforeAssign": false
+            }
+        ],
+        "no-var": [
+            "error"
+        ],
+        "no-new-object": [
+            "error"
+        ],
+        "object-shorthand": [
+            "error"
+        ],
+        "template-curly-spacing": [
+            "error"
+        ],
+        "no-array-constructor": [
+            "error"
+        ],
+        "func-style": [
+            "error"
+        ],
+        "no-loop-func": [
+            "error"
+        ],
+        "prefer-rest-params": [
+            "error"
+        ],
+        "no-new-func": [
+            "error"
+        ],
+        "space-before-blocks": [
+            "error"
+        ],
+        "no-param-reassign": [
+            "error"
+        ],
+        "prefer-arrow-callback": [
+            "error"
+        ],
+        "arrow-spacing": [
+            "error"
+        ],
+        "arrow-parens": [
+            "error"
+        ],
+        "arrow-body-style": [
+            "error"
+        ],
+        "no-dupe-class-members": [
+            "error"
+        ],
+        "no-duplicate-imports": [
+            "error"
+        ],
+        "dot-notation": [
+            "error"
+        ],
+        "no-case-declarations": [
+            "error"
+        ],
+        "no-nested-ternary": [
+            "error"
+        ],
+        "no-unneeded-ternary": [
+            "error"
+        ],
+        "space-infix-ops": [
+            "error"
+        ],
+        "key-spacing": [
+            "error"
+        ],
+        "newline-per-chained-call": [
+            "error"
+        ],
+        "no-whitespace-before-property": [
+            "error"
+        ],
+        "padded-blocks": [
+            "error",
+            "never"
+        ],
+        "space-in-parens": [
+            "error"
+        ],
+        "array-bracket-spacing": [
+            "error"
+        ],
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ],
+        "max-len": [
+            "error",
+            100
+        ],
+        "radix": [
+            "error"
+        ],
+        "no-console": [
+            "off"
+        ],
+        "no-undef": [
+            "error",
+            {
+                "typeof": true
+            }
+        ],
+        "react/prop-types": [
+            1,
+            {
+                "ignore": [
+                    "navigator",
+                    "dispatch",
+                    "history",
+                    "match",
+                    "children"
+                ]
+            }
+        ],
+        "indent": [
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}

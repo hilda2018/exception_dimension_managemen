@@ -1,0 +1,78 @@
+{
+   "result": true,
+   "msg":"数据返回成功",
+   "data": [
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday": 7,
+           "selected":false
+        },
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday":2,
+            "selected":false
+        },
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday": 7,
+            "selected":false
+        },
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday": 1,
+            "selected":true
+        },
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday": 7,
+            "selected":true
+        },
+        {
+           "status":"-1",
+           "rowid":"222",
+           "countrylogicexpression":"等于",
+           "countryid":"美国",
+           "productlogicexpression":"等于",
+           "productid":"车厘子",
+           "tiemlogicexpression":"等于",
+           "timedimensiontype":"实际发货时间",
+           "timecheckday": 7,
+           "selected":true
+        }
+    ]
+}

@@ -1,0 +1,7 @@
+export const CHANGE_SELECT_VALUE = 'ExceptionList/CHANGE_SELECT_VALUE';
+export const GET_EXCEPTION_DATA = 'ExceptionList/GET_EXCEPTION_DATA';
+export const CLICK_EXCEPTION_TYPE = 'ExceptionList/CLICK_EXCEPTION_TYPE';
+
+export const INIT_EXCEPTION_LIST_ACTION = 'ExceptionList/INIT_EXCEPTION_LIST_ACTION';
+
+export const SELECT_CHANGE_ACTION = 'ExceptionList/SELECT_CHANGE_ACTION';
