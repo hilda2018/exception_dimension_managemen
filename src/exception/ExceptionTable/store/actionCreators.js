@@ -11,20 +11,14 @@ const getdimentionData = (dimentionData) => ({
     dimentionData
 });
 
+
 export const getInitExceptionDimention = () => (dispatch) => {
-//  获取json  tradeexceptiondataAction!getExceptionDownListData.dhtml
-  //const requestData = get('/public/api/exceptionDimention.json');
-    const url = '/public/api/exceptionDimention.json';
-    //  const url = 'tradeexceptiondataAction!getExceptionDownListData.dhtml';
-
-
-    const requestData = get(url);
+    const requestData = get(actionTypes.getdimentionUrl);
     requestData.then((res)  => res.json()).then((json) => {
         dispatch(getdimentionData(json));
-    })
-        .catch((error) => {
-            console.log('There has been a problem with your fetch operation: 没有获取到维度数据');
-        });
+    }).catch((error) => {
+        console.log('There has been a problem with your fetch operation: 没有获取到维度数据');
+    });
 };
 
 
@@ -34,19 +28,18 @@ const handleModifyData = (modifyData) => ({
     type: actionTypes.HANDLE_TABLE_ACTION,
     modifyData
 });
-
+// 发送数据
 export const handleModifyTableData = (modifyData ) => (dispatch) => {
 
-  const url = 'tradeexceptionAction.action!saveExceptionData.dhtml';
-  const requestModify = post(url,modifyData);
-  
-  //const requestModify = get('/public/api/table1.json');
+  const postModifyDataUrl =actionTypes.postModifyDataUrl;
+  const requestModify = post(postModifyDataUrl,modifyData);
 
     requestModify.then((res)  => res.json()).then((json) => {
+        if(json.result){
 
-        dispatch(handleModifyData(json));
-        console.log('获取到最新数据了');
-        // 。成功的话 将数据再刷新一遍
+            dispatch(handleModifyData(json));
+            console.log('获取到最新数据了');
+        }
 
     })
         .catch((error) => {

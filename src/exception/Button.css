@@ -1,0 +1,179 @@
+.fp-button {
+  display: inline-block;
+  line-height: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: #4c5161;
+  border: 1px solid #d0d0d5;
+  border-radius: 4px;
+  padding: 6px 15px;
+  min-width: 50px;
+  background-color: #fff;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-decoration: none;
+  -webkit-transition: border-color .15s, background-color .15s, opacity .15s;
+  transition: border-color .15s, background-color .15s, opacity .15s;
+  cursor: pointer;
+  overflow: visible; }
+
+.fp-button.error {
+  border-color: #f4615c !important; }
+
+div.fp-button {
+  display: block; }
+
+button,
+[type="button"],
+[type="submit"] {
+  outline: 0; }
+
+input.fp-button,
+button.fp-button {
+  height: 20px;
+  -ms-box-sizing: content-box;
+  box-sizing: content-box; }
+
+.fp-button:hover {
+  color: #4c5161;
+  border-color: #ababaf;
+  text-decoration: none; }
+
+.fp-button-clip {
+  width: 0;
+  height: 0;
+  font-size: 0;
+  position: absolute;
+  clip: rect(0 0 0 0); }
+
+.fp-button-clip.ui-outline + label.fp-button {
+  outline: 1px dotted #2486ff;
+  outline: 5px auto -webkit-focus-ring-color; }
+
+.fp-button:not(.disabled):active,
+.fp-button:not(.loading):active {
+  background-color: #f7f9fa; }
+
+.fp-button.disabled:hover,
+.fp-button.loading,
+.fp-button.loading:hover {
+  color: #4c5161;
+  background-color: #fff;
+  border-color: #d0d0d5;
+  cursor: default; }
+
+.fp-button-primary,
+.fp-button-primary.disabled:hover,
+.fp-button-primary.loading,
+.fp-button-primary.loading:hover {
+  border: 1px solid rgba(155, 197, 61, 1);
+  background-color: rgba(155, 197, 61, 1);
+  color: #fff; }
+
+.fp-button-primary:hover {
+  background-color: #8bb62a;
+  border-color: #8bb62a;
+  color: #fff; }
+
+.fp-button-primary:not(.disabled):active,
+.fp-button-primary:not(.loading):active {
+  background-color: rgba(155, 197, 61, 1);
+  border-color: rgba(155, 197, 61, 1);
+ }
+
+.fp-button-success,
+.fp-button-success.disabled,
+.fp-button-success.disabled:hover,
+.fp-button-success.loading,
+.fp-button-success.loading:hover {
+  border: 1px solid #01cf97;
+  background-color: #01cf97;
+  color: #fff; }
+
+.fp-button-success:hover {
+  background-color: #00dba2;
+  border-color: #00dba2;
+  color: #fff; }
+
+.fp-button-success:not(.disabled):active,
+.fp-button-success:not(.loading):active {
+  background-color: #7da81e;
+  border-color: #7da81e; }
+
+.fp-button-warning,
+.fp-button-warning.disabled,
+.fp-button-warning.disabled:hover,
+.fp-button-warning.loading,
+.fp-button-warning.loading:hover {
+  border: 1px solid #f4615c;
+  background-color: #f4615c;
+  color: #fff; }
+
+.fp-button-warning:hover,
+input.fp-button-warning:focus,
+button.fp-button-warning:focus {
+  background-color: #ff7772;
+  border-color: #ff7772;
+  color: #fff; }
+
+.fp-button-warning:not(.disabled):active,
+.fp-button-warning:not(.loading):active {
+  background-color: #dc5652;
+  border-color: #dc5652; }
+
+.fp-button.loading {
+  cursor: default;
+  -ms-pointer-events: none;
+  pointer-events: none;
+  color: transparent !important;
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center; }
+
+.fp-button.loading:before {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: no-repeat center; }
+/*
+..loading:before,
+input.fp-button.loading {
+  background-image: url(images/Button/loading.gif); }
+
+.fp-button-primary.loading:before,
+input.fp-button-primary.loading {
+  background-image: url(images/Button/loading-primary.gif); }
+
+.fp-button-success.loading:before,
+input.fp-button-success.loading {
+  background-image: url(images/Button/loading-success.gif); }
+
+.fp-button-warning.loading:before,
+input.fp-button-warning.loading {
+  background-image: url(images/Button/loading-warning.gif); } */
+
+/* IE10+ png loading */
+/* .fp-button.loading::before {
+  background: url(images/Button/loading-blue.png), linear-gradient(transparent, transparent);
+  background-size: 100%;
+  -webkit-animation: spin 0.8s linear infinite;
+  animation: spin 800ms linear infinite; }
+
+.fp-button-primary.loading::before,
+.fp-button-success.loading::before,
+.fp-button-warning.loading::before {
+  background: url(images/Button/loading-white.png), linear-gradient(transparent, transparent);
+  background-size: 100%; }
+
+/* IE8 loading文字隐藏控制-背景色覆盖 */
+/* @media \0screen\,screen\9 {
+  .fp-button.loading:before {
+    width: auto;
+    height: auto;
+    background-color: inherit; } }  */

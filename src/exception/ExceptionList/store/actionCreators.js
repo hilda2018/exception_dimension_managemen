@@ -2,112 +2,6 @@ import * as actionTypes from './actionTypes';
 import { get } from './../../../comom/get.js';
 import { post } from './../../../comom/post.js';
 
-
-// 初始化 得到 异常类型的列表数据
-const getexceptionList = (exceptionData) => ({
-    type: actionTypes.INIT_EXCEPTION_LIST_ACTION,
-    exceptionData
-});
-
-export const getInitExceptionList = () => (dispatch) => {
-
-    //const url = 'tradeexceptiondataAction!getExceptionTypeData.dhtml';
-    const url = '/public/api/exceptionListData.json';
-
-    const requestData = get(url);
-    let  tableid = '';
-
-    requestData.then((res)  => { return res.json() }).then((json) => {
-
-
-            console.log(json.data); //  处理json
-
-            dispatch(getexceptionList(json.data));
-
-            console.log('first table');
-            // 得到返回数据 ，第一条异常类型的表格
-            const item = json.data[0];
-
-            if( !item.id){//id 为空
-                  console.log('id为空');
-                  let Request =
-                  get('/public/api/exceptionListData.json');
-
-                  Request.then((res) => res.json()).then((json) => {
-                    json.id='222'
-                  //const id = json.id;
-                  const getTableDataRequest =    get('/public/api/exceptionListData.json?id='+ json.id);
-                  tableid = json.id;
-
-                  console.log(33);
-                  console.log('tableid'); console.log(tableid);
-                  getTableDataRequest.then((res) => res.json()).then((json) => {
-                      json.id = tableid
-                      console.log('接收到数据');
-                      console.log(json);  //这是表格的右侧数据
-                      dispatch(postSelectChange (json));
-                      console.log(json);
-                  }).catch((err) => { console.log('没有获取到表格数据')})
-
-              }).catch((err) => { console.log('没有获取到id')})
-
-
-            }
-            else{//id 不为空
-
-
-
-
-              console.log('id不为空');
-              const getTableDataRequest =    get('tradeuserexceptionAction!loadUserExceptionData.dhtml?id='+ item.id);
-
-              getTableDataRequest.then((res) => res.json()).then((json) => {
-
-                  console.log('接收到数据');
-                  console.log(json);  //这是表格的右侧数据
-                  dispatch(postSelectChange (json.data));
-
-              }).catch((err) => { console.log('没有获取到表格数据')})
-
-            }
-
-
-    })
-        .catch((error) => {
-            console.log('There has been a problem with your fetch operation: ', error.message);
-        });
-};
-
-
-// const postData = {
-//     'exceptiontypeid': item.exceptiontypeid,
-//     'id': item.id ,
-//     'isuse': item.isuse,
-//     "pagesize":  20 ,
-//     "currentpage": 1,
-//  };
-//
-// console.log('发送异常类型postData');
-// console.log(postData);
-//
-// const postDataRequest2 =
-// get('/public/api/table1.json?id='+postData.id);
-//
-// postDataRequest2.then((res) => res.json()).then((json) => {
-//
-//    //console.log('接收到数据');
-// console.log(json);  //这是表格的右侧数据
-//
-//  //  console.log('json.data');
-//    dispatch(postSelectChange (json.data));
-//
-// })
-//
-
-
-
-
-
 // 下拉选择改变  返回表格的右侧数据
 
 const postSelectChange = (tableData) => (
@@ -117,52 +11,139 @@ const postSelectChange = (tableData) => (
     }
 );
 
-export const handlepostSelectChange = (postData) => (dispatch) => {
+
+
+// 根据 userexceptiontypeid id  获取表格数据
+export const userexceptiontypeidToGetTableData = (userexceptiontypeid) => (dispatch) => {
+  console.log('有id，可直接求表格数据');
+    const requestTableDataUrl = actionTypes.requestTableDataUrl;
+  console.log('有id，可直接求表格数据');
+    const userexceptiontypeRequest =
+    get(requestTableDataUrl+'?id='+ userexceptiontypeid);
+  console.log('有id，可直接求表格数据');
+    userexceptiontypeRequest.then((res) => res.json()).then((json) => {
+    console.log('//这是表格的右侧数据')
+    console.log(json);
+        dispatch(postSelectChange (json.data));
+
+    }).catch((err) => { console.log('没有获取到表格数据')})
+
+}
+
+// 有id，可直接求表格数据 ，无id，求id，再求表格数据
+export let handlepostSelectChange = (postData)  => (dispatch) => {
   console.log('postData.id');
   console.log(postData.id);
 
-//tradeuserexceptionAction!loadUserExceptionData.dhtml
-    if(postData.id !== ''){ // 不再发送 获取ID请求
+      //没有id
+      if( !postData.id ){
+          //alert('没有id');
+          console.log('id为空');
+          //发起请求，获得id
+          const postData2 = {
+              'exceptiontypeid': postData.select_exceptiontypeid ,
+              'id': postData.id,
+              'isuse': postData.isuse,
+              'pagesize':  20 ,
+              'currentpage': 1
+          };
+          //得到 id↓ 求表格数据
+          getExceptionId(postData2);
+      }
+      else
+      {
+        console.log('有id，可直接求表格数据');
+          // 有id，可直接求表格数据
+          const id=postData.id;
+          const requestTableDataUrl = actionTypes.requestTableDataUrl;
+        console.log('有id，可直接求表格数据');
+          const userexceptiontypeRequest =
+          get(requestTableDataUrl+'?id='+ id);
+        console.log('有id，可直接求表格数据');
+          userexceptiontypeRequest.then((res) => res.json()).then((json) => {
 
-    const postDataRequest2 =
-    get('tradeuserexceptionAction!loadUserExceptionData.dhtml?id='+postData.id);
+            if(json.result){
+              const tableData = {
+                data:json.data,
+                id:id
+              }
 
-    postDataRequest2.then((res) => res.json()).then((json) => {
-
-     console.log(json);  //这是表格的右侧数据
-        dispatch(postSelectChange (json.data));
-
-    })
-
-  }
-  else
-  {
-    alert('没有id');
-
-          const postDataRequest =
-          //      post('tradeexceptiondataAction!saveExceptionType.dhtml', postData);
-          // const postDataRequest =
-          //   post('/public/api/table1.json', postData);
-          postDataRequest.then((res) => res.json()).then((json) => {
-
-           const postDataRequest2 =
-           get('tradeuserexceptionAction!loadUserExceptionData.dhtml?id='+ json.id);
-          //    const postDataRequest2 =
-          //    get('/public/api/table1.json?id=');
+              dispatch(postSelectChange (tableData));
+            }else{
+              alert('后台出错');
+            }
 
 
-           postDataRequest2.then((res) => res.json()).then((json) => {
-               console.log('接收到数据，第二次请求');
-               dispatch(postSelectChange (json.data));
+          }).catch((err) => { console.log('没有获取到表格数据')})
+      }
 
-           });
-          })
-          .catch((error) => {
-              console.log('There has been a problem with your fetch operation: ', error.message);
-          });
-            //  console.log('发送数据，获取ID，然后在发给后台ID，获取表格数据');
-            //  console.log(postData);
+};
+
+
+
+// 初始化 得到 异常类型的列表数据
+const getexceptionList = (exceptionData) => ({
+    type: actionTypes.INIT_EXCEPTION_LIST_ACTION,
+    exceptionData
+});
+
+
+// 初始化 得到 异常类型的列表数据
+const saveExceptiodnTypeId = (exceptionTypeId) => ({
+    type: actionTypes.SAVE_EXCEPTION_ID_ACTION,
+    exceptionTypeId
+});
+
+//异常维度数据（左侧）的请求
+export const getInitExceptionList = () => (dispatch) => {
+
+    const url = actionTypes.getInitListurl;
+    const getInitListRequest = get(url);
+
+    //为了记录异常类型的id，映射出相应的表格
+    getInitListRequest.then((res) => { return res.json() }).then((json) => {
+      // 得到返回数据 ↓
+    dispatch(getexceptionList(json.data));
+   //  ↓
+   // 求得  第一条异常类型的表格
+    const item = json.data[0];
+    // 当id 不存在的时候
+    if( !item.id){
+        console.log('id为空');
+        //发起请求，获得id
+        const postData = {
+            'exceptiontypeid': item.select_exceptiontypeid ,
+            'id': item.id,
+            'isuse': item.isuse,
+            'pagesize':  20 ,
+            'currentpage': 1
+        };
+        //得到 id↓ 求表格数据
+
+        getExceptionId(postData);
+
+    }else{
+
+
+        dispatch(saveExceptiodnTypeId(item.id));
+        userexceptiontypeidToGetTableData(item.id);
     }
 
 
-};
+  })
+}
+
+
+// 得到id值
+export const getExceptionId = (postData) => (dispatch) => {
+
+  const saveExceptionUrl = actionTypes.saveExceptionUrl;
+  const postDataRequest =  post(saveExceptionUrl , postData);
+  postDataRequest.then((res) => res.json()).then((json) => {
+    // 有id，可直接求表格数据
+    dispatch(saveExceptiodnTypeId(json.id));
+    userexceptiontypeidToGetTableData(json.id);
+
+  }).catch((err) => { console.log('没有获取到表格数据')})
+
+}

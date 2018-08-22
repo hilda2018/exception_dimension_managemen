@@ -113,7 +113,7 @@
 /******/
 /******/ 	var hotApplyOnUpdate = true;
 /******/ 	// eslint-disable-next-line no-unused-vars
-/******/ 	var hotCurrentHash = "746bca985bbb7ad791be";
+/******/ 	var hotCurrentHash = "6c10595e87f46a097a16";
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule;
@@ -902,7 +902,7 @@ var get = exports.get = function get(url) {
         return;
     }
 
-    reactHotLoader.register(get, 'get', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\comom\\get.js');
+    reactHotLoader.register(get, 'get', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\comom\\get.js');
     leaveModule(module);
 })();
 
@@ -948,6 +948,7 @@ var obj2params = function obj2params(obj) {
 
 // 发送 post 请求
 var post = exports.post = function post(url, paramsObj) {
+    console.log(JSON.stringify(paramsObj));
     var result = fetch(url, {
         method: 'POST',
         credentials: 'include',
@@ -971,8 +972,8 @@ var post = exports.post = function post(url, paramsObj) {
         return;
     }
 
-    reactHotLoader.register(obj2params, 'obj2params', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\comom\\post.js');
-    reactHotLoader.register(post, 'post', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\comom\\post.js');
+    reactHotLoader.register(obj2params, 'obj2params', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\comom\\post.js');
+    reactHotLoader.register(post, 'post', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\comom\\post.js');
     leaveModule(module);
 })();
 
@@ -1097,8 +1098,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(App, 'App', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\App.jsx');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\App.jsx');
+    reactHotLoader.register(App, 'App', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\App.jsx');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\App.jsx');
     leaveModule(module);
 })();
 
@@ -1107,10 +1108,10 @@ exports.default = _default;
 
 /***/ }),
 
-/***/ "./src/exception/ExceptionList/SelectComponent.js":
-/*!********************************************************!*\
-  !*** ./src/exception/ExceptionList/SelectComponent.js ***!
-  \********************************************************/
+/***/ "./src/exception/ExceptionList/index.js":
+/*!**********************************************!*\
+  !*** ./src/exception/ExceptionList/index.js ***!
+  \**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1133,13 +1134,13 @@ var _react = __webpack_require__(/*! react */ "react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _store = __webpack_require__(/*! ./store */ "./src/exception/ExceptionList/store/index.js");
-
-var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1155,37 +1156,37 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+//组件类 下拉
 var Option = _select2.default.Option;
 
-var SelectComponen = function (_PureComponent) {
-    _inherits(SelectComponen, _PureComponent);
+var Selectcomponent = function (_React$PureComponent) {
+    _inherits(Selectcomponent, _React$PureComponent);
 
     // 初始化页面常量 绑定事件方法
-    function SelectComponen(props) {
-        _classCallCheck(this, SelectComponen);
+    function Selectcomponent(props) {
+        _classCallCheck(this, Selectcomponent);
 
-        var _this = _possibleConstructorReturn(this, (SelectComponen.__proto__ || Object.getPrototypeOf(SelectComponen)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Selectcomponent.__proto__ || Object.getPrototypeOf(Selectcomponent)).call(this, props));
 
         _this.state = {
-            isuse: 'Y', // 是否在异常维护查询显示模式
-            arrData: [{ 'key': 'Y', 'text': '是' }, { 'key': 'N', 'text': '否' }],
-            defaultText: '是'
-        };
+            isuse: 'Y'
+        }; //默认是可以展示
         _this._handleSelecthChange = _this._handleSelecthChange.bind(_this);
         return _this;
     }
 
-    _createClass(SelectComponen, [{
+    _createClass(Selectcomponent, [{
         key: '_handleSelecthChange',
         value: function _handleSelecthChange(val) {
             var _this2 = this;
 
+            var value = val === '是' ? 'Y' : 'N';
             this.setState({
-                isuse: val
+                isuse: value
             }, function () {
                 var postData = {
-                    'exceptiontypeid': _this2.props.select_exceptiontypeid,
-                    'id': _this2.props.select_id,
+                    'exceptiontypeid': _this2.props.exceptiontypeid,
+                    'id': _this2.props.userexceptiontypeid,
                     'isuse': _this2.state.isuse
                 };
 
@@ -1196,29 +1197,29 @@ var SelectComponen = function (_PureComponent) {
         key: 'render',
         value: function render() {
             var _props = this.props,
-                select_exceptiontypeid = _props.select_exceptiontypeid,
-                select_index = _props.select_index,
-                select_isuse = _props.select_isuse;
+                userexceptiontypeid = _props.userexceptiontypeid,
+                isuse = _props.isuse,
+                exceptiontypeid = _props.exceptiontypeid;
 
-            var selectOption = this.state.arrData.map(function (opData) {
-                return _react2.default.createElement(
-                    Option,
-                    { key: select_index,
-                        value: opData.key },
-                    opData.text
-                );
-            });
-
-            console.log(this.state.text);
             return _react2.default.createElement(
                 _select2.default,
                 {
                     className: 'w36',
-                    id: select_exceptiontypeid,
-                    defaultValue: select_isuse,
+                    exceptiontypeid: exceptiontypeid,
+                    userexceptiontypeid: userexceptiontypeid,
+                    defaultValue: isuse === 'N' ? '否' : '是',
                     onChange: this._handleSelecthChange
                 },
-                selectOption
+                _react2.default.createElement(
+                    Option,
+                    { key: 'Y', value: 'Y' },
+                    '是'
+                ),
+                _react2.default.createElement(
+                    Option,
+                    { key: 'N', value: 'N' },
+                    '否'
+                )
             );
         }
     }, {
@@ -1230,125 +1231,35 @@ var SelectComponen = function (_PureComponent) {
         }
     }]);
 
-    return SelectComponen;
-}(_react.PureComponent);
-
-var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-    return {
-        getSelectExceptionChange: function getSelectExceptionChange(postData) {
-            dispatch(_store.actionCreators.handlepostSelectChange(postData));
-        }
-    };
-};
-
-var _default = (0, _reactRedux.connect)(null, mapDispatchToProps)(SelectComponen);
-
-exports.default = _default;
-
-
-SelectComponen.propTypes = {
-    selectData: _propTypes2.default.object.isRequired,
-    select_exceptiontypeid: _propTypes2.default.object.isRequired,
-    select_index: _propTypes2.default.object.isRequired,
-    id: _propTypes2.default.object.isRequired,
-    select_id: _propTypes2.default.object.isRequired,
-    getSelectExceptionChange: _propTypes2.default.func
-};
-;
-
-(function () {
-    var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
-
-    var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
-
-    if (!reactHotLoader) {
-        return;
-    }
-
-    reactHotLoader.register(Option, 'Option', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\SelectComponent.js');
-    reactHotLoader.register(SelectComponen, 'SelectComponen', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\SelectComponent.js');
-    reactHotLoader.register(mapDispatchToProps, 'mapDispatchToProps', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\SelectComponent.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\SelectComponent.js');
-    leaveModule(module);
-})();
-
-;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../node_modules/webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
-
-/***/ }),
-
-/***/ "./src/exception/ExceptionList/index.js":
-/*!**********************************************!*\
-  !*** ./src/exception/ExceptionList/index.js ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(module) {
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(/*! react */ "react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-
-var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
-
-var _propTypes2 = _interopRequireDefault(_propTypes);
-
-var _store = __webpack_require__(/*! ./store */ "./src/exception/ExceptionList/store/index.js");
-
-var _SelectComponent = __webpack_require__(/*! ./SelectComponent */ "./src/exception/ExceptionList/SelectComponent.js");
-
-var _SelectComponent2 = _interopRequireDefault(_SelectComponent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-(function () {
-    var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
-
-    enterModule && enterModule(module);
-})();
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+    return Selectcomponent;
+}(_react2.default.PureComponent);
 
 //组件类 li
-var Licomponent = function (_React$PureComponent) {
-    _inherits(Licomponent, _React$PureComponent);
+
+
+var Licomponent = function (_React$PureComponent2) {
+    _inherits(Licomponent, _React$PureComponent2);
 
     function Licomponent(props) {
         _classCallCheck(this, Licomponent);
 
-        var _this = _possibleConstructorReturn(this, (Licomponent.__proto__ || Object.getPrototypeOf(Licomponent)).call(this, props));
+        var _this3 = _possibleConstructorReturn(this, (Licomponent.__proto__ || Object.getPrototypeOf(Licomponent)).call(this, props));
 
-        _this.state = {
+        _this3.state = {
             isShowItem: {}
         };
-        _this.clickExceptionType = _this.clickExceptionType.bind(_this);
-        return _this;
+        _this3.clickExceptionType = _this3.clickExceptionType.bind(_this3);
+        return _this3;
     }
 
     _createClass(Licomponent, [{
         key: 'clickExceptionType',
         value: function clickExceptionType(e) {
-            // 当 ID 已有值的时候，不发送请求
+            //当 ID 已有值的时候，不发送请求
             e.preventDefault();
-
             var item = this.props.item;
 
             console.log('开始 点击 异常类型');
-
             var postData = {
                 'exceptiontypeid': item.exceptiontypeid,
                 'id': item.id,
@@ -1357,10 +1268,10 @@ var Licomponent = function (_React$PureComponent) {
                 "currentpage": 1
             };
 
-            console.log('发送异常类型id');
-            console.log(postData);
+            //console.log('发送异常类型id');
+            //console.log(postData);
 
-            //  this.props.getSelectExceptionChange(postData)
+            this.props.getSelectExceptionChange(postData);
         }
     }, {
         key: 'render',
@@ -1370,27 +1281,29 @@ var Licomponent = function (_React$PureComponent) {
 
             return _react2.default.createElement(
                 'li',
-                { exceptiontypeid: item.exceptiontypeid,
-
-                    id: item.id,
+                {
+                    exceptiontypeid: item.exceptiontypeid,
                     isuse: item.isuse,
-
+                    title: item.exceptionname,
+                    userexceptiontypeid: item.id,
                     className: 'ell  relative' },
                 _react2.default.createElement(
                     'div',
                     { className: 'list-select vm' },
-                    _react2.default.createElement(_SelectComponent2.default, {
+                    _react2.default.createElement(Selectcomponent, {
                         className: 'w30 vt',
-                        select_id: item.id,
-                        select_isuse: item.isuse,
-                        select_exceptiontypeid: item.exceptiontypeid
+                        title: item.isuse,
+                        userexceptiontypeid: item.id,
+                        isuse: item.isuse,
+                        exceptiontypeid: item.exceptiontypeid
                     })
                 ),
                 _react2.default.createElement(
                     'div',
-                    { className: 'ml14 nowrap ell vm list-text', onClick: this.clickExceptionType },
-                    item.exceptionname,
-                    ' '
+                    {
+                        className: 'ml14 nowrap ell vm list-text', onClick: this.clickExceptionType,
+                        title: item.exceptionname },
+                    item.exceptionname
                 )
             );
         }
@@ -1407,6 +1320,7 @@ var Licomponent = function (_React$PureComponent) {
 }(_react2.default.PureComponent);
 
 ;
+//组件类 ul
 
 var ExceptionList = function (_PureComponent) {
     _inherits(ExceptionList, _PureComponent);
@@ -1420,40 +1334,34 @@ var ExceptionList = function (_PureComponent) {
     _createClass(ExceptionList, [{
         key: 'render',
         value: function render() {
-            console.log(this.props);
-            var _props = this.props,
-                exceptionData = _props.exceptionData,
-                getSelectExceptionChange = _props.getSelectExceptionChange;
+            var _props2 = this.props,
+                exceptionData = _props2.exceptionData,
+                getSelectExceptionChange = _props2.getSelectExceptionChange;
 
 
             var list = [];
             exceptionData.forEach(function (item, index) {
-                item.getSelectExceptionChange = getSelectExceptionChange;
 
-                if (index === 0) {
-                    //第一次的时候。触发
-                    console.log(22);
-                }
+                item.getSelectExceptionChange = getSelectExceptionChange;
                 list.push(_react2.default.createElement(Licomponent, { item: item, index: index,
                     getSelectExceptionChange: getSelectExceptionChange
                 }));
             });
 
-            console.log('List');
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'exception-list-ctrl' },
                 _react2.default.createElement(
                     'div',
-                    { 'class': 'ant-list-item ell  relative list-bordered ' },
+                    { 'class': 'ell  relative list-bordered ' },
                     _react2.default.createElement(
-                        'div',
-                        { 'class': 'ishownot' },
+                        'span',
+                        { 'class': 'ishownot pad-r-14 display-inline-blo' },
                         '\u662F\u5426\u5C55\u793A'
                     ),
                     _react2.default.createElement(
-                        'div',
-                        { 'class': 'ml14 nowrap' },
+                        'span',
+                        { 'class': 'ml14 nowrap w130 display-inline-blo' },
                         '\u5F02\u5E38\u60C5\u51B5\u7C7B\u578B'
                     )
                 ),
@@ -1490,9 +1398,8 @@ var mapStateToProps = function mapStateToProps(state) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     return {
         getSelectExceptionChange: function getSelectExceptionChange(postData) {
-            //点击触发数据
-            console.log('postData');
-            //   dispatch(actionCreators.handlepostSelectChange(postData));
+            //点击触发数据 console.log('postData');
+            dispatch(_store.actionCreators.handlepostSelectChange(postData));
         },
         handleExceptionListInit: function handleExceptionListInit() {
             dispatch(_store.actionCreators.getInitExceptionList());
@@ -1511,6 +1418,15 @@ ExceptionList.propTypes = {
     clickExceptionType: _propTypes2.default.object.isRequired,
     handleExceptionListInit: _propTypes2.default.func
 };
+
+Selectcomponent.propTypes = {
+    selectData: _propTypes2.default.object.isRequired,
+    select_exceptiontypeid: _propTypes2.default.object.isRequired,
+    select_index: _propTypes2.default.object.isRequired,
+    id: _propTypes2.default.object.isRequired,
+    select_id: _propTypes2.default.object.isRequired,
+    getSelectExceptionChange: _propTypes2.default.func
+};
 ;
 
 (function () {
@@ -1522,11 +1438,13 @@ ExceptionList.propTypes = {
         return;
     }
 
-    reactHotLoader.register(Licomponent, 'Licomponent', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\index.js');
-    reactHotLoader.register(ExceptionList, 'ExceptionList', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\index.js');
-    reactHotLoader.register(mapStateToProps, 'mapStateToProps', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\index.js');
-    reactHotLoader.register(mapDispatchToProps, 'mapDispatchToProps', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\index.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(Option, 'Option', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(Selectcomponent, 'Selectcomponent', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(Licomponent, 'Licomponent', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(ExceptionList, 'ExceptionList', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(mapStateToProps, 'mapStateToProps', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(mapDispatchToProps, 'mapDispatchToProps', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\index.js');
     leaveModule(module);
 })();
 
@@ -1546,9 +1464,9 @@ ExceptionList.propTypes = {
 /* WEBPACK VAR INJECTION */(function(module) {
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
-exports.handlepostSelectChange = exports.getInitExceptionList = undefined;
+exports.getExceptionId = exports.getInitExceptionList = exports.handlepostSelectChange = exports.userexceptiontypeidToGetTableData = undefined;
 
 var _actionTypes = __webpack_require__(/*! ./actionTypes */ "./src/exception/ExceptionList/store/actionTypes.js");
 
@@ -1561,183 +1479,180 @@ var _post = __webpack_require__(/*! ./../../../comom/post.js */ "./src/comom/pos
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 (function () {
-    var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
+  var enterModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").enterModule;
 
-    enterModule && enterModule(module);
+  enterModule && enterModule(module);
 })();
-
-// 初始化 得到 异常类型的列表数据
-var getexceptionList = function getexceptionList(exceptionData) {
-    return {
-        type: actionTypes.INIT_EXCEPTION_LIST_ACTION,
-        exceptionData: exceptionData
-    };
-};
-
-var getInitExceptionList = exports.getInitExceptionList = function getInitExceptionList() {
-    return function (dispatch) {
-        //  获取json  /public/api/exceptionListData.json
-        //tradeexceptiondataAction!getExceptionTypeData.dhtml
-        var url = 'tradeexceptiondataAction!getExceptionTypeData.dhtml';
-
-        var requestData = (0, _get.get)(url);
-
-        requestData.then(function (res) {
-            return res.json();
-        }).then(function (json) {
-            console.log(json.data); //  处理json
-            dispatch(getexceptionList(json.data));
-
-            console.log('first table');
-
-            // 得到返回数据 ，第一条异常类型的表格
-            var item = json.data[0];
-
-            if (!item.id) {
-                //id 为空
-
-                var Request = (0, _post.post)('tradeuserexceptionAction!loadUserExceptionData.dhtml', postData);
-
-                Request.then(function (res) {
-                    return res.json();
-                }).then(function (json) {
-
-                    //const id = json.id;
-                    var getTableDataRequest = (0, _get.get)('tradeuserexceptionAction!loadUserExceptionData.dhtml?id=' + json.id);
-
-                    getTableDataRequest.then(function (res) {
-                        return res.json();
-                    }).then(function (json) {
-
-                        console.log('接收到数据');
-                        console.log(json); //这是表格的右侧数据
-                        dispatch(postSelectChange(json.data));
-                    }).catch(function (err) {
-                        console.log('没有获取到表格数据');
-                    });
-                }).catch(function (err) {
-                    console.log('没有获取到id');
-                });
-            } else {
-                //id 不为空
-                var getTableDataRequest = (0, _get.get)('tradeuserexceptionAction!loadUserExceptionData.dhtml?id=' + json.id);
-
-                getTableDataRequest.then(function (res) {
-                    return res.json();
-                }).then(function (json) {
-
-                    console.log('接收到数据');
-                    console.log(json); //这是表格的右侧数据
-                    dispatch(postSelectChange(json.data));
-                }).catch(function (err) {
-                    console.log('没有获取到表格数据');
-                });
-            }
-        }).catch(function (error) {
-            console.log('There has been a problem with your fetch operation: ', error.message);
-        });
-    };
-};
-
-// const postData = {
-//     'exceptiontypeid': item.exceptiontypeid,
-//     'id': item.id ,
-//     'isuse': item.isuse,
-//     "pagesize":  20 ,
-//     "currentpage": 1,
-//  };
-//
-// console.log('发送异常类型postData');
-// console.log(postData);
-//
-// const postDataRequest2 =
-// get('/public/api/table1.json?id='+postData.id);
-//
-// postDataRequest2.then((res) => res.json()).then((json) => {
-//
-//    //console.log('接收到数据');
-// console.log(json);  //这是表格的右侧数据
-//
-//  //  console.log('json.data');
-//    dispatch(postSelectChange (json.data));
-//
-// })
-//
-
 
 // 下拉选择改变  返回表格的右侧数据
 
-var postSelectChange = function postSelectChange(exceptionTableData) {
-    return {
-        type: actionTypes.SELECT_CHANGE_ACTION,
-        exceptionTableData: exceptionTableData
-    };
+var postSelectChange = function postSelectChange(tableData) {
+  return {
+    type: actionTypes.SELECT_CHANGE_ACTION,
+    tableData: tableData
+  };
 };
 
+// 根据 userexceptiontypeid id  获取表格数据
+var userexceptiontypeidToGetTableData = exports.userexceptiontypeidToGetTableData = function userexceptiontypeidToGetTableData(userexceptiontypeid) {
+  return function (dispatch) {
+    console.log('有id，可直接求表格数据');
+    var requestTableDataUrl = actionTypes.requestTableDataUrl;
+    console.log('有id，可直接求表格数据');
+    var userexceptiontypeRequest = (0, _get.get)(requestTableDataUrl + '?id=' + userexceptiontypeid);
+    console.log('有id，可直接求表格数据');
+    userexceptiontypeRequest.then(function (res) {
+      return res.json();
+    }).then(function (json) {
+      console.log('//这是表格的右侧数据');
+      console.log(json);
+      dispatch(postSelectChange(json.data));
+    }).catch(function (err) {
+      console.log('没有获取到表格数据');
+    });
+  };
+};
+
+// 有id，可直接求表格数据 ，无id，求id，再求表格数据
 var handlepostSelectChange = exports.handlepostSelectChange = function handlepostSelectChange(postData) {
-    return function (dispatch) {
-        console.log('postData.id');
-        console.log(postData.id);
+  return function (dispatch) {
+    console.log('postData.id');
+    console.log(postData.id);
 
-        //tradeuserexceptionAction!loadUserExceptionData.dhtml
-        if (postData.id !== '') {
-            // 不再发送 获取ID请求
+    //没有id
+    if (!postData.id) {
+      //alert('没有id');
+      console.log('id为空');
+      //发起请求，获得id
+      var postData2 = {
+        'exceptiontypeid': postData.select_exceptiontypeid,
+        'id': postData.id,
+        'isuse': postData.isuse,
+        'pagesize': 20,
+        'currentpage': 1
+      };
+      //得到 id↓ 求表格数据
+      getExceptionId(postData2);
+    } else {
+      console.log('有id，可直接求表格数据');
+      // 有id，可直接求表格数据
+      var id = postData.id;
+      var requestTableDataUrl = actionTypes.requestTableDataUrl;
+      console.log('有id，可直接求表格数据');
+      var userexceptiontypeRequest = (0, _get.get)(requestTableDataUrl + '?id=' + id);
+      console.log('有id，可直接求表格数据');
+      userexceptiontypeRequest.then(function (res) {
+        return res.json();
+      }).then(function (json) {
 
-            var postDataRequest2 = (0, _get.get)('tradeuserexceptionAction!loadUserExceptionData.dhtml?id=' + postData.id);
+        if (json.result) {
+          var tableData = {
+            data: json.data,
+            id: id
+          };
 
-            postDataRequest2.then(function (res) {
-                return res.json();
-            }).then(function (json) {
-
-                console.log(json); //这是表格的右侧数据
-                dispatch(postSelectChange(json.data));
-            });
+          dispatch(postSelectChange(tableData));
         } else {
-            alert('没有id');
-
-            var postDataRequest =
-            //      post('tradeexceptiondataAction!saveExceptionType.dhtml', postData);
-            // const postDataRequest =
-            //   post('/public/api/table1.json', postData);
-            postDataRequest.then(function (res) {
-                return res.json();
-            }).then(function (json) {
-
-                var postDataRequest2 = (0, _get.get)('tradeuserexceptionAction!loadUserExceptionData.dhtml?id=' + json.id);
-                //    const postDataRequest2 =
-                //    get('/public/api/table1.json?id=');
-
-
-                postDataRequest2.then(function (res) {
-                    return res.json();
-                }).then(function (json) {
-                    console.log('接收到数据，第二次请求');
-                    dispatch(postSelectChange(json.data));
-                });
-            }).catch(function (error) {
-                console.log('There has been a problem with your fetch operation: ', error.message);
-            });
-            //  console.log('发送数据，获取ID，然后在发给后台ID，获取表格数据');
-            //  console.log(postData);
+          alert('后台出错');
         }
-    };
+      }).catch(function (err) {
+        console.log('没有获取到表格数据');
+      });
+    }
+  };
+};
+
+// 初始化 得到 异常类型的列表数据
+var getexceptionList = function getexceptionList(exceptionData) {
+  return {
+    type: actionTypes.INIT_EXCEPTION_LIST_ACTION,
+    exceptionData: exceptionData
+  };
+};
+
+// 初始化 得到 异常类型的列表数据
+var saveExceptiodnTypeId = function saveExceptiodnTypeId(exceptionTypeId) {
+  return {
+    type: actionTypes.SAVE_EXCEPTION_ID_ACTION,
+    exceptionTypeId: exceptionTypeId
+  };
+};
+
+//异常维度数据（左侧）的请求
+var getInitExceptionList = exports.getInitExceptionList = function getInitExceptionList() {
+  return function (dispatch) {
+
+    var url = actionTypes.getInitListurl;
+    var getInitListRequest = (0, _get.get)(url);
+
+    //为了记录异常类型的id，映射出相应的表格
+    getInitListRequest.then(function (res) {
+      return res.json();
+    }).then(function (json) {
+      // 得到返回数据 ↓
+      dispatch(getexceptionList(json.data));
+      //  ↓
+      // 求得  第一条异常类型的表格
+      var item = json.data[0];
+      // 当id 不存在的时候
+      if (!item.id) {
+        console.log('id为空');
+        //发起请求，获得id
+        var postData = {
+          'exceptiontypeid': item.select_exceptiontypeid,
+          'id': item.id,
+          'isuse': item.isuse,
+          'pagesize': 20,
+          'currentpage': 1
+        };
+        //得到 id↓ 求表格数据
+
+        getExceptionId(postData);
+      } else {
+
+        dispatch(saveExceptiodnTypeId(item.id));
+        userexceptiontypeidToGetTableData(item.id);
+      }
+    });
+  };
+};
+
+// 得到id值
+var getExceptionId = exports.getExceptionId = function getExceptionId(postData) {
+  return function (dispatch) {
+
+    var saveExceptionUrl = actionTypes.saveExceptionUrl;
+    var postDataRequest = (0, _post.post)(saveExceptionUrl, postData);
+    postDataRequest.then(function (res) {
+      return res.json();
+    }).then(function (json) {
+      // 有id，可直接求表格数据
+      dispatch(saveExceptiodnTypeId(json.id));
+      userexceptiontypeidToGetTableData(json.id);
+    }).catch(function (err) {
+      console.log('没有获取到表格数据');
+    });
+  };
 };
 ;
 
 (function () {
-    var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
+  var reactHotLoader = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").default;
 
-    var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
+  var leaveModule = __webpack_require__(/*! react-hot-loader */ "./node_modules/react-hot-loader/index.js").leaveModule;
 
-    if (!reactHotLoader) {
-        return;
-    }
+  if (!reactHotLoader) {
+    return;
+  }
 
-    reactHotLoader.register(getexceptionList, 'getexceptionList', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionCreators.js');
-    reactHotLoader.register(getInitExceptionList, 'getInitExceptionList', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionCreators.js');
-    reactHotLoader.register(postSelectChange, 'postSelectChange', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionCreators.js');
-    reactHotLoader.register(handlepostSelectChange, 'handlepostSelectChange', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionCreators.js');
-    leaveModule(module);
+  reactHotLoader.register(postSelectChange, 'postSelectChange', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(userexceptiontypeidToGetTableData, 'userexceptiontypeidToGetTableData', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(handlepostSelectChange, 'handlepostSelectChange', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(getexceptionList, 'getexceptionList', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(saveExceptiodnTypeId, 'saveExceptiodnTypeId', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(getInitExceptionList, 'getInitExceptionList', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  reactHotLoader.register(getExceptionId, 'getExceptionId', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionCreators.js');
+  leaveModule(module);
 })();
 
 ;
@@ -1765,13 +1680,33 @@ Object.defineProperty(exports, "__esModule", {
   enterModule && enterModule(module);
 })();
 
-var CHANGE_SELECT_VALUE = exports.CHANGE_SELECT_VALUE = 'ExceptionList/CHANGE_SELECT_VALUE';
-var GET_EXCEPTION_DATA = exports.GET_EXCEPTION_DATA = 'ExceptionList/GET_EXCEPTION_DATA';
 var CLICK_EXCEPTION_TYPE = exports.CLICK_EXCEPTION_TYPE = 'ExceptionList/CLICK_EXCEPTION_TYPE';
 
 var INIT_EXCEPTION_LIST_ACTION = exports.INIT_EXCEPTION_LIST_ACTION = 'ExceptionList/INIT_EXCEPTION_LIST_ACTION';
 
 var SELECT_CHANGE_ACTION = exports.SELECT_CHANGE_ACTION = 'ExceptionList/SELECT_CHANGE_ACTION';
+
+var SAVE_EXCEPTION_ID_ACTION = exports.SAVE_EXCEPTION_ID_ACTION = 'ExceptionList/SAVE_EXCEPTION_ID_ACTION';
+
+// 静态的数据
+
+//得到异常类型的数据
+// export const getInitListurl = 'http://www.mocky.io/v2/5b7cefeb33000076004a007a';
+//
+// export const exceptionIdurl = 'http://www.mocky.io/v2/5b7cf07a33000063004a007c';
+//
+// export const saveExceptionUrl ='http://www.mocky.io/v2/5b7cf07a33000063004a007c';
+//
+// export const requestTableDataUrl='http://www.mocky.io/v2/5b7d231d3300005c004a0157';
+// 动态的数据
+
+var requestTableDataUrl = exports.requestTableDataUrl = 'tradeuserexceptionAction!loadUserExceptionData.dhtml';
+
+var getInitListurl = exports.getInitListurl = 'tradeexceptiondataAction!getExceptionTypeData.dhtml';
+
+var exceptionIdurl = exports.exceptionIdurl = 'tradeuserexceptionAction!loadUserExceptionData.dhtml';
+
+var saveExceptionUrl = exports.saveExceptionUrl = 'tradeexceptiondataAction!saveExceptiodnType.dhtml';
 ;
 
 (function () {
@@ -1783,11 +1718,14 @@ var SELECT_CHANGE_ACTION = exports.SELECT_CHANGE_ACTION = 'ExceptionList/SELECT_
     return;
   }
 
-  reactHotLoader.register(CHANGE_SELECT_VALUE, 'CHANGE_SELECT_VALUE', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionTypes.js');
-  reactHotLoader.register(GET_EXCEPTION_DATA, 'GET_EXCEPTION_DATA', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionTypes.js');
-  reactHotLoader.register(CLICK_EXCEPTION_TYPE, 'CLICK_EXCEPTION_TYPE', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionTypes.js');
-  reactHotLoader.register(INIT_EXCEPTION_LIST_ACTION, 'INIT_EXCEPTION_LIST_ACTION', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionTypes.js');
-  reactHotLoader.register(SELECT_CHANGE_ACTION, 'SELECT_CHANGE_ACTION', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(CLICK_EXCEPTION_TYPE, 'CLICK_EXCEPTION_TYPE', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(INIT_EXCEPTION_LIST_ACTION, 'INIT_EXCEPTION_LIST_ACTION', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(SELECT_CHANGE_ACTION, 'SELECT_CHANGE_ACTION', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(SAVE_EXCEPTION_ID_ACTION, 'SAVE_EXCEPTION_ID_ACTION', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(requestTableDataUrl, 'requestTableDataUrl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(getInitListurl, 'getInitListurl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(exceptionIdurl, 'exceptionIdurl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
+  reactHotLoader.register(saveExceptionUrl, 'saveExceptionUrl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\actionTypes.js');
   leaveModule(module);
 })();
 
@@ -1861,35 +1799,44 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
     enterModule && enterModule(module);
 })();
 
-var selectData = {
-    'key': 'Y',
-    'keyText': '是',
-    'showId': '',
-    'arrData': [{ 'key': 'Y', 'text': '是' }, { 'key': 'N', 'text': '否' }] };
-
-/*********** 以上是 虚拟数据，可被删除 ****************/
+/*********** 异常类型下拉 store  初始化 ****************/
 var defaultState = (0, _immutable.fromJS)({ // 初始化 store ，store的数据结构
-    pending: false,
-    selectData: selectData,
     exceptionData: [], //getExceptionData: [] 是异常情况类型列表数据
-    exceptionTableData: []
+    exceptionTableData: [],
+    id: ''
 });
 
 var _default = function _default() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : defaultState;
     var action = arguments[1];
 
-    if (action.type === actionTypes.INIT_EXCEPTION_LIST_ACTION) {
-        var newState = state.merge({ exceptionData: action.exceptionData });
-        return newState;
-    }
 
-    if (action.type === actionTypes.SELECT_CHANGE_ACTION) {
-        // console.log(25);
-        var _newState = state.merge({ exceptionTableData: action.exceptionTableData });console.log(state);
-        return _newState;
+    switch (action.type) {
+
+        /*********** 得到下拉数据  ****************/
+        case actionTypes.INIT_EXCEPTION_LIST_ACTION:
+
+            return state.merge({
+                exceptionData: action.exceptionData
+            });
+
+        /*********** 是否展示select 改变触发的事件  ****************/
+        case actionTypes.SELECT_CHANGE_ACTION:
+            console.log(action.tableData);
+            return state.merge({
+                exceptionTableData: action.tableData.data,
+                id: action.tableData.id
+            });
+
+        /*********** 保存id ****************/
+        case actionTypes.SAVE_EXCEPTION_ID_ACTION:
+
+            return state.merge({
+                id: action.exceptionTypeId
+            });
+        default:
+            return state;
     }
-    return state;
 };
 
 exports.default = _default;
@@ -1904,9 +1851,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(selectData, 'selectData', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\reducer.js');
-    reactHotLoader.register(defaultState, 'defaultState', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\reducer.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionList\\store\\reducer.js');
+    reactHotLoader.register(defaultState, 'defaultState', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\reducer.js');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionList\\store\\reducer.js');
     leaveModule(module);
 })();
 
@@ -1933,6 +1879,10 @@ var _button = __webpack_require__(/*! antd/es/button */ "./node_modules/antd/es/
 
 var _button2 = _interopRequireDefault(_button);
 
+var _message2 = __webpack_require__(/*! antd/es/message */ "./node_modules/antd/es/message/index.js");
+
+var _message3 = _interopRequireDefault(_message2);
+
 var _inputNumber = __webpack_require__(/*! antd/es/input-number */ "./node_modules/antd/es/input-number/index.js");
 
 var _inputNumber2 = _interopRequireDefault(_inputNumber);
@@ -1948,6 +1898,8 @@ var _table2 = _interopRequireDefault(_table);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 __webpack_require__(/*! antd/es/button/style */ "./node_modules/antd/es/button/style/index.js");
+
+__webpack_require__(/*! antd/es/message/style */ "./node_modules/antd/es/message/style/index.js");
 
 __webpack_require__(/*! antd/es/input-number/style */ "./node_modules/antd/es/input-number/style/index.js");
 
@@ -2368,7 +2320,10 @@ var Tableinfocomponent = function (_React$PureComponent2) {
                         _react2.default.createElement(
                             'th',
                             { className: 'tc' },
-                            _react2.default.createElement('input', { type: 'checkbox', id: 'checkAll', checked: this.props.isCheckAll,
+                            _react2.default.createElement('input', {
+                                type: 'checkbox',
+                                id: 'checkAll',
+                                checked: this.props.isCheckAll,
                                 onChange: function onChange(e) {
                                     _this5.props.checkAll(e.target.checked);
                                 } }),
@@ -2459,17 +2414,35 @@ var ExceptionTable = function (_Component2) {
         _this6.add = _this6.add.bind(_this6);
         _this6.cancle = _this6.cancle.bind(_this6);
         _this6.delete = _this6.delete.bind(_this6);
+        _this6.filterItem = _this6.filterItem.bind(_this6);
+
+        _this6.setCheckAll = _this6.setCheckAll.bind(_this6);
+        _this6.setCheck = _this6.setCheck.bind(_this6);
+        _this6.remove = _this6.remove.bind(_this6);
+        _this6.removeSelect = _this6.removeSelect.bind(_this6);
         return _this6;
     }
 
     _createClass(ExceptionTable, [{
+        key: 'filterItem',
+        value: function filterItem(arr, value) {
+            for (var key in arr) {
+                for (var i in arr[key]) {
+                    var itemBase = arr[key][i];
+                    if (i == 'name' && itemBase == value) {
+                        return arr[key]['id'];
+                    }
+                }
+            }
+        }
+    }, {
         key: 'save',
         value: function save() {
-            console.log('this.state.exceptionTableData');
-            console.log(this.state.exceptionTableData);
+            var _this7 = this;
 
             if (this.state.isAddDeleEdit === 'Add') {
                 //新增
+                var dimentionData = this.props.dimentionData;
 
                 var newDatas = this.state.exceptionTableData.filter(function (record) {
                     return record.status == '0';
@@ -2478,39 +2451,119 @@ var ExceptionTable = function (_Component2) {
                     return false;
                 }
 
-                console.log(newDatas);
-                this.props.getModifyTableData(newDatas);
+                newDatas.map(function (item) {
+
+                    item.countryid = _this7.filterItem(dimentionData.origin, item.countryid);
+
+                    item.countrylogicexpression = _this7.filterItem(dimentionData.originOperator, item.countrylogicexpression);
+
+                    item.productid = _this7.filterItem(dimentionData.product, item.productid);
+
+                    item.productlogicexpression = _this7.filterItem(dimentionData.productOperator, item.productlogicexpression);
+
+                    item.timedimensiontype = _this7.filterItem(dimentionData.time, item.timedimensiontype);
+
+                    item.timelogicexpression = _this7.filterItem(dimentionData.timeOperator, item.timelogicexpression);
+
+                    return item;
+                });
+                console.log('newDatas');console.log(newDatas);
+                var modifyData = {
+                    'userexceptiontypeid': this.props.id,
+                    'data': JSON.stringify(newDatas)
+                };
+
+                this.props.getModifyTableData(modifyData);
             }
         }
     }, {
         key: 'edit',
         value: function edit() {
             // 实现编辑操作
-            // operating: 'true',
-            // deleteStatus: 'false',
-            // editStatus: 'false',
-            // isAddDeleEdit: 'Add',
-            // if( this.operating === true ){
-            //
-            // }
+            var exceptionTableData = this.state.exceptionTableData;
 
+
+            if (!selectedRowKeys.length) {
+                _message3.default.error('请至少选择一条数据进行操作');
+                return false;
+            }
+
+            dataSource.map(function (item, index) {
+                if (selectedRowKeys.indexOf(index) !== -1) {
+                    item.rowStatus = '1';
+                } else {
+                    item.rowStatus = '-1';
+                }
+            });
+            prevData = Array.from(dataSource);
+            this.setState({
+                operating: 'true',
+                addStatus: 'false',
+                isAddDeleEdit: 'Edit',
+                deleteStatus: 'false',
+                exceptionTableData: [].concat(_toConsumableArray(exceptionTableData))
+            });
         }
     }, {
         key: 'cancle',
         value: function cancle() {}
     }, {
+        key: 'isCheckAll',
+        value: function isCheckAll() {
+            var exceptionTableData = this.state.exceptionTableData;
+            for (var i = 0; i < data.length; i++) {
+                if (!data[i].selected) {
+                    return false;
+                }
+            }
+            return true;
+        }
+    }, {
+        key: 'setCheckAll',
+        value: function setCheckAll(checked) {
+            var exceptionTableData = this.state.exceptionTableData.map(function (val) {
+                val.selected = checked;
+                return val;
+            });
+            this.setState({
+                exceptionTableData: exceptionTableData
+            });
+        }
+    }, {
+        key: 'setCheck',
+        value: function setCheck(index, checked) {
+            var exceptionTableData = this.state.exceptionTableData;
+            exceptionTableData.forEach(function (val) {
+                if (val.id === index) {
+                    val.selected = checked;
+                }
+            });
+            this.setState({
+                exceptionTableData: exceptionTableData
+            });
+        }
+    }, {
         key: 'add',
         value: function add() {
-            var _newData;
-
             var exceptionTableData = this.state.exceptionTableData;
 
-
-            var newData = (_newData = {
+            var orginArr = this.props.dimentionData.origin;
+            var productArr = this.props.dimentionData.product;
+            var newData = {
                 rowid: 'row' + (exceptionTableData.length + 1),
                 key: 'row' + (exceptionTableData.length + 1),
-                rowKey: exceptionTableData.length + 1
-            }, _defineProperty(_newData, 'rowid', 'row1'), _defineProperty(_newData, 'rowKey', 1), _defineProperty(_newData, 'userexceptionid', 'userexceptionid' + (exceptionTableData.length + 1)), _defineProperty(_newData, 'countryid', '全部'), _defineProperty(_newData, 'countrylogicexpression', '等于'), _defineProperty(_newData, 'productid', '全部'), _defineProperty(_newData, 'productlogicexpression', '等于'), _defineProperty(_newData, 'timedimensiontype', '实际发货时间'), _defineProperty(_newData, 'timecheckday', '2'), _defineProperty(_newData, 'tiemlogicexpression', '等于'), _defineProperty(_newData, 'status', '0'), _defineProperty(_newData, 'selected', true), _newData);
+                rowKey: exceptionTableData.length + 1,
+                userexceptionid: this.props.userexceptiontypeid,
+                countryid: '秘鲁',
+                countrylogicexpression: '等于',
+                productid: '火龙果',
+                productlogicexpression: '等于',
+                timedimensiontype: '出港区时间',
+                timecheckday: '2',
+                timelogicexpression: '等于',
+                status: '0', //-1 normal ,0 新增 1，编辑 2，删除,
+                selected: true
+            };
 
             this.setState({
                 operating: 'true',
@@ -2524,6 +2577,31 @@ var ExceptionTable = function (_Component2) {
         key: 'delete',
         value: function _delete() {}
     }, {
+        key: 'remove',
+        value: function remove(index) {
+            var exceptionTableData = this.state.data.filter(function (val) {
+                return val.id !== index;
+            });
+            this.setState({
+                exceptionTableData: exceptionTableData
+            });
+        }
+    }, {
+        key: 'removeSelect',
+        value: function removeSelect() {
+            var exceptionTableData = this.state.data.filter(function (val) {
+                return !val.selected;
+            });
+            this.setState({
+                exceptionTableData: exceptionTableData
+            });
+        }
+    }, {
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.props.getdimentionData();
+        }
+    }, {
         key: 'render',
         value: function render() {
 
@@ -2534,7 +2612,7 @@ var ExceptionTable = function (_Component2) {
                 editStatus = _state.editStatus,
                 operating = _state.operating,
                 status = _state.status;
-
+            //  console.log(this.props.exceptionTableData);
 
             if (this.state.exceptionTableData == '') {
                 this.state.exceptionTableData = [].concat(_toConsumableArray(this.props.exceptionTableData));
@@ -2581,7 +2659,10 @@ var ExceptionTable = function (_Component2) {
                     'div',
                     { className: 'table-container' },
                     _react2.default.createElement(Tableinfocomponent, {
-
+                        isCheckAll: this.isCheckAll(),
+                        checkAll: this.setCheckAll,
+                        setCheck: this.setCheck,
+                        id: this.props.id,
                         exceptionTableData: this.state.exceptionTableData,
                         dimentionData: dimentionData })
                 )
@@ -2602,7 +2683,8 @@ var ExceptionTable = function (_Component2) {
 var mapStateToProps = function mapStateToProps(state) {
     return {
         dimentionData: state.getIn(['ExceptionTable', 'dimentionData']).toJS(),
-        exceptionTableData: state.getIn(['ExceptionList', 'exceptionTableData']).toJS()
+        exceptionTableData: state.getIn(['ExceptionList', 'exceptionTableData']).toJS(),
+        id: state.getIn(['ExceptionList', 'id'])
     };
 };
 
@@ -2645,16 +2727,16 @@ SelectTableComponent.propTypes = {
         return;
     }
 
-    reactHotLoader.register(prevData, 'prevData', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(Column, 'Column', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(Option, 'Option', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(SelectTableComponent, 'SelectTableComponent', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(Trcomponent, 'Trcomponent', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(Tableinfocomponent, 'Tableinfocomponent', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(ExceptionTable, 'ExceptionTable', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(mapStateToProps, 'mapStateToProps', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(mapDispatchToProps, 'mapDispatchToProps', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(prevData, 'prevData', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(Column, 'Column', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(Option, 'Option', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(SelectTableComponent, 'SelectTableComponent', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(Trcomponent, 'Trcomponent', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(Tableinfocomponent, 'Tableinfocomponent', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(ExceptionTable, 'ExceptionTable', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(mapStateToProps, 'mapStateToProps', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(mapDispatchToProps, 'mapDispatchToProps', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\index.js');
     leaveModule(module);
 })();
 
@@ -2705,12 +2787,7 @@ var getdimentionData = function getdimentionData(dimentionData) {
 
 var getInitExceptionDimention = exports.getInitExceptionDimention = function getInitExceptionDimention() {
     return function (dispatch) {
-        //  获取json  tradeexceptiondataAction!getExceptionDownListData.dhtml
-        //const requestData = get('/public/api/exceptionDimention.json');
-
-        var url = 'tradeexceptiondataAction!getExceptionDownListData.dhtml';
-
-        var requestData = (0, _get.get)(url);
+        var requestData = (0, _get.get)(actionTypes.getdimentionUrl);
         requestData.then(function (res) {
             return res.json();
         }).then(function (json) {
@@ -2729,22 +2806,21 @@ var handleModifyData = function handleModifyData(modifyData) {
         modifyData: modifyData
     };
 };
-
+// 发送数据
 var handleModifyTableData = exports.handleModifyTableData = function handleModifyTableData(modifyData) {
     return function (dispatch) {
-        //  获取json  tradeexceptiondataAction!getExceptionDownListData.dhtml
-        //const requestData = get('/public/api/exceptionDimention.json');
-        var url = 'tradeexceptiondataAction!getExceptionDownListData.dhtml';
-        var requestModify = (0, _post.post)(url, modifyData);
-        //  const requestModify = get('/public/api/table1.json');
+
+        var postModifyDataUrl = actionTypes.postModifyDataUrl;
+        var requestModify = (0, _post.post)(postModifyDataUrl, modifyData);
 
         requestModify.then(function (res) {
             return res.json();
         }).then(function (json) {
+            if (json.result) {
 
-            dispatch(handleModifyData(json));
-            console.log('获取到最新数据了');
-            // 。成功的话 将数据再刷新一遍
+                dispatch(handleModifyData(json));
+                console.log('获取到最新数据了');
+            }
         }).catch(function (error) {
             console.log('There has been a problem with your fetch operation:没有获取到最新');
         });
@@ -2761,10 +2837,10 @@ var handleModifyTableData = exports.handleModifyTableData = function handleModif
         return;
     }
 
-    reactHotLoader.register(getdimentionData, 'getdimentionData', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
-    reactHotLoader.register(getInitExceptionDimention, 'getInitExceptionDimention', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
-    reactHotLoader.register(handleModifyData, 'handleModifyData', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
-    reactHotLoader.register(handleModifyTableData, 'handleModifyTableData', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
+    reactHotLoader.register(getdimentionData, 'getdimentionData', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
+    reactHotLoader.register(getInitExceptionDimention, 'getInitExceptionDimention', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
+    reactHotLoader.register(handleModifyData, 'handleModifyData', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
+    reactHotLoader.register(handleModifyTableData, 'handleModifyTableData', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionCreators.js');
     leaveModule(module);
 })();
 
@@ -2793,11 +2869,18 @@ Object.defineProperty(exports, "__esModule", {
   enterModule && enterModule(module);
 })();
 
-var INIT_EXCEPTION_TABLE_ACTION = exports.INIT_EXCEPTION_TABLE_ACTION = 'ExceptionTable/INIT_EXCEPTION_TABLE_ACTION';
-
 var INIT_EXCEPTION_DIMENTION_ACTION = exports.INIT_EXCEPTION_DIMENTION_ACTION = 'ExceptionList/INIT_EXCEPTION_DIMENTION_ACTION';
 
 var HANDLE_TABLE_ACTION = exports.HANDLE_TABLE_ACTION = 'ExceptionTable/HANDLE_TABLE_ACTION';
+// 
+// export const getdimentionUrl = 'tradeexceptiondataAction!getExceptionDownListData.dhtml';
+// export const postModifyDataUrl = 'tradeuserexceptionAction!saveExceptionData.dhtml';
+//
+
+//基础维度数据
+var getdimentionUrl = exports.getdimentionUrl = 'http://www.mocky.io/v2/5b7cef013300004e004a0078';
+//发送表格修改数据
+var postModifyDataUrl = exports.postModifyDataUrl = 'http://www.mocky.io/v2/5b7ced4633000076004a0076';
 ;
 
 (function () {
@@ -2809,9 +2892,10 @@ var HANDLE_TABLE_ACTION = exports.HANDLE_TABLE_ACTION = 'ExceptionTable/HANDLE_T
     return;
   }
 
-  reactHotLoader.register(INIT_EXCEPTION_TABLE_ACTION, 'INIT_EXCEPTION_TABLE_ACTION', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
-  reactHotLoader.register(INIT_EXCEPTION_DIMENTION_ACTION, 'INIT_EXCEPTION_DIMENTION_ACTION', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
-  reactHotLoader.register(HANDLE_TABLE_ACTION, 'HANDLE_TABLE_ACTION', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
+  reactHotLoader.register(INIT_EXCEPTION_DIMENTION_ACTION, 'INIT_EXCEPTION_DIMENTION_ACTION', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
+  reactHotLoader.register(HANDLE_TABLE_ACTION, 'HANDLE_TABLE_ACTION', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
+  reactHotLoader.register(getdimentionUrl, 'getdimentionUrl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
+  reactHotLoader.register(postModifyDataUrl, 'postModifyDataUrl', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\actionTypes.js');
   leaveModule(module);
 })();
 
@@ -2886,7 +2970,6 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 })();
 
 var defaultState = (0, _immutable.fromJS)({
-        exceptionTableData: [],
         dimentionData: {}
 });
 
@@ -2922,8 +3005,8 @@ exports.default = _default;
                 return;
         }
 
-        reactHotLoader.register(defaultState, 'defaultState', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\reducer.js');
-        reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\ExceptionTable\\store\\reducer.js');
+        reactHotLoader.register(defaultState, 'defaultState', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\reducer.js');
+        reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\ExceptionTable\\store\\reducer.js');
         leaveModule(module);
 })();
 
@@ -3019,9 +3102,9 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(composeEnhancers, 'composeEnhancers', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\store\\index.js');
-    reactHotLoader.register(store, 'store', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\store\\index.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\store\\index.js');
+    reactHotLoader.register(composeEnhancers, 'composeEnhancers', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\store\\index.js');
+    reactHotLoader.register(store, 'store', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\store\\index.js');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\store\\index.js');
     leaveModule(module);
 })();
 
@@ -3075,8 +3158,8 @@ exports.default = _default;
         return;
     }
 
-    reactHotLoader.register(reducer, 'reducer', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\store\\reducer.js');
-    reactHotLoader.register(_default, 'default', 'G:\\\u5F20\u6D77\u9759_\u9879\u76EE\u7BA1\u7406\u6587\u4EF6\u5939\\jinan_exception\\exception-dimension-management\\src\\exception\\store\\reducer.js');
+    reactHotLoader.register(reducer, 'reducer', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\store\\reducer.js');
+    reactHotLoader.register(_default, 'default', 'G:\\\u5F02\u5E38\u7BA1\u7406_08_20\\src\\exception\\store\\reducer.js');
     leaveModule(module);
 })();
 

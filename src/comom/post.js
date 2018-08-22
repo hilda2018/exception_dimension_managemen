@@ -18,7 +18,7 @@ const obj2params = (obj) =>  {
 
 // 发送 post 请求
 export  const  post = (url, paramsObj) => {
-      console.log(paramsObj);
+    console.log(JSON.stringify(paramsObj));
     const result = fetch(url, {
         method: 'POST',
         credentials: 'include',
